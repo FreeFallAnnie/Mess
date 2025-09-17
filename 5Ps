@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Leverage Pyramid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .pyramid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .layer {
+      width: 80%;
+      padding: 15px;
+      background-color: #305070;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .layer:hover {
+      background-color: #406080;
+    }
+    .info {
+      margin-top: 30px;
+      background: white;
+      border-left: 5px solid #305070;
+      padding: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>System Leverage Pyramid</h1>
+  <div class="pyramid">
+    <div class="layer" onclick="showInfo('purpose')">PURPOSE ZONE</div>
+    <div class="layer" onclick="showInfo('pathway')">PATHWAY ZONE</div>
+    <div class="layer" onclick="showInfo('process')">PROCESS ZONE</div>
+    <div class="layer" onclick="showInfo('parameter')">PARAMETER ZONE</div>
+  </div>
+
+  <div class="info" id="infoBox"></div>
+
+  <script>
+    const infoData = {
+      purpose: `
+        <strong>The goals of the system</strong><br>
+        The mindset or paradigm out of which the system, its goals, power structure, rules, its culture, arises<br>
+        The power to transcend paradigms
+        <br><br><strong>Purpose Questions:</strong><br>
+        Why are we doing it? What are the goals?<br>
+        What are the fundamental assumptions behind our work? Do we need to change them?<br>
+        How does our value system shape our work and the final product?<br>
+        How our priorities drive the design choices we make?<br>
+        Are our motivations transparent and for the public good?<br>
+        Who will benefit, who will lose?<br>
+        Are there other alternatives? What are they?
+      `,
+      pathway: `
+        <strong>The structure of information flows</strong> (access to information)<br>
+        The rules of the system (such as incentives, punishments, constraints)<br>
+        The power to add, change, evolve, or self-organize system structure
+        <br><br><strong>Pathway Questions:</strong><br>
+        How can we change the structure of the system?<br>
+        What are the rules and who makes them (incentive, punishment, constraints)?<br>
+        Who does and does not have access to what kinds of information?<br>
+        How can we share information more readily?<br>
+        How can we involve users in problem solving?<br>
+        How do we know we are right? and, what is involved if things go wrong?
+      `,
+      process: `
+        <strong>The lengths of delays</strong>, relative to the rate of system change<br>
+        The strength of negative feedback loops<br>
+        The gain around driving positive feedback loops
+        <br><br><strong>Process Questions:</strong><br>
+        How should principles be drawn up and applied?<br>
+        How can we speed up things that are working?<br>
+        How can we slow down things that are not working?<br>
+        How can we reduce delays?
+      `,
+      parameter: `
+        <strong>Constants, parameters, numbers</strong><br>
+        The sizes of buffers relative to their flows<br>
+        The structure of material stocks and flows
+        <br><br><strong>Parameter Questions:</strong><br>
+        How to keep the system stable with minimum change?<br>
+        How to step out of ‘abstract’ discussion by defining ‘practical’ actions?<br>
+        How should principles be quantified?<br>
+        How risks and benefits can be managed through changing parameters and resources?<br>
+        What parameters need to be measured and modified?<br>
+        What resources can be deployed?<br>
+        What other impacts can we anticipate?
+      `
+    };
+
+    function showInfo(zone) {
+      const infoBox = document.getElementById("infoBox");
+      infoBox.innerHTML = infoData[zone];
+      infoBox.style.display = "block";
+    }
+  </script>
+</body>
+</html>
